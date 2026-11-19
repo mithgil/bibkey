@@ -45,6 +45,22 @@ cd ~/apps/bibkey && git pull
 單一檔案、只用標準庫，所以也可以複製到別的 repo（例如 `scripts/bibkey.py`），
 或用 `python3 /path/to/bibkey.py` 執行。
 
+## 依賴
+
+| 指令 | 需要什麼 |
+|---|---|
+| `bibs` `find` `check` `dedup` | 只要 `.bib`（和對應的 `.tex`）。不需要 Zotero、不需要網路。 |
+| `zotero` `dups` `prune` | `~/Zotero/zotero.sqlite`。Zotero 裝過就有；開著時自動改讀 snapshot，**不需要外掛**。 |
+| `merge` | Zotero **正在執行** + `zotero-dedupe` 外掛 **≥ 1.2.0** + `~/Zotero/zotero-dedupe-merge-token`。 |
+
+`merge` 是**唯一**會碰網路的地方:它 POST 到 Zotero 自己的 local server
+（`127.0.0.1:23119/dedupe/merge`）。`merge --plan` 完全離線；只有 dry run 與
+`--yes` 會連過去。
+
+為什麼要繞這一圈:`bibkey` 從不直接寫 `zotero.sqlite`。合併 items 要搬附件、筆記、
+標籤、collection，只有 Zotero 行程內的 `mergeItems.mjs` 會做對，所以外掛是橋樑，
+`bibkey` 只負責決定「留哪一份、併哪些」。
+
 ## 快速開始
 
 ```bash
