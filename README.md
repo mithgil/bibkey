@@ -232,6 +232,11 @@ python3 -m py_compile bibkey.py     # 語法檢查
 
 改完直接 commit 就生效（symlink 指向 repo 裡的工作檔）。單檔專案，沒有建置步驟。
 
+## 相關專案
+
+- [zotero-dedupe-plugin](https://github.com/mithgil/zotero-dedupe-plugin) —
+  `merge` 用的 Zotero 外掛（`/dedupe/merge`，Zotero 7–11）
+
 ## 授權
 
 GPL-3.0，見 `LICENSE`。

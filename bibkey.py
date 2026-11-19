@@ -648,9 +648,9 @@ def merge(texes: List[Path], bibs: List[Path], yes: bool, probe: bool,
             if error.code == 404:
                 raise SystemExit(
                     f"{MERGE_URL} does not exist: the installed zotero-dedupe "
-                    "plugin has no merge endpoint.\nInstall "
-                    "/home/tim/apps/zotero-dedupe-plugin/zotero-dedupe.xpi "
-                    "(Tools -> Plugins -> Install Plugin From File) and restart Zotero."
+                    "plugin has no merge endpoint.\nInstall zotero-dedupe 1.2.0 "
+                    "or newer (Tools -> Plugins -> Install Plugin From File, "
+                    "then restart Zotero)."
                 )
             raise SystemExit(f"HTTP {error.code} from {MERGE_URL}: {body}")
         except urllib.error.URLError as error:
