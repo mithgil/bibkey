@@ -26,7 +26,7 @@ TeX root 的 `\addbibresource` / `\bibliography` 找出那個檔案（跟 LaTeX 
 本體是一個 git repo，放在 `~/apps/bibkey`；`~/.local/bin/bibkey` 指過去。
 
 ```bash
-git clone <repo> ~/apps/bibkey      # 或直接在 ~/apps/bibkey 開發
+git clone git@github.com:mithgil/bibkey.git ~/apps/bibkey
 cd ~/apps/bibkey
 ./install.sh                        # chmod +x、建立 ~/.local/bin/bibkey symlink
 ```
@@ -215,3 +215,7 @@ python3 -m py_compile bibkey.py     # 語法檢查
 ```
 
 改完直接 commit 就生效（symlink 指向 repo 裡的工作檔）。單檔專案，沒有建置步驟。
+
+## 授權
+
+GPL-3.0，見 `LICENSE`。
